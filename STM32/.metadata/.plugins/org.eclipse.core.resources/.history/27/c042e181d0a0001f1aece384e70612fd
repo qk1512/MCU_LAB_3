@@ -1,0 +1,93 @@
+/*
+ * fsm_button.c
+ *
+ *  Created on: Nov 12, 2024
+ *      Author: doqua
+ */
+
+#include "fsm_button.h"
+void fsm_button_run(){
+	int status_3 = 0;
+	switch(status_3){
+	case INIT_BUTTON:
+		if(timer3_flag==1){
+			status=RESET;
+			setTimer3(100);
+		}
+		break;
+	case RESET_BUTTON:
+		if(timer3_flag==1) processReset();
+		if(isButtonPressed(FIRST_BUTTON)){
+			status=RESET;
+			setTimer3(100);
+		}
+		if(isButtonPressed(SECOND_BUTTON)){
+			status=INC_BUTTON;
+			setTimer3(100);
+		}
+		if(isButtonPressed(THIRD_BUTTON)){
+			status=DEC_BUTTON;
+			setTimer3(100);
+		}
+		break;
+	case INC_BUTTON:
+		if(timer2_flag==1){
+			status= AUTODECREASE;
+			setTimer2(100);
+		}
+		if(timer3_flag==1) processIncrease();
+		if(isButtonPressed(FIRST_BUTTON)){
+			status=RESET;
+			setTimer3(100);
+		}
+		if(isButtonPressed(SECOND_BUTTON)){
+			status=INC_BUTTON;
+			setTimer3(100);
+		}
+		if(isButtonPressed(THIRD_BUTTON)){
+			status=DEC_BUTTON;
+			setTimer3(100);
+		}
+		if(isButtonPressedMoreThan3s(SECOND_BUTTON)){
+			status=INC;
+			setTimer3(100);
+		}
+		break;
+	case DEC_BUTTON:
+		if(timer2_flag==1){
+			status= AUTODECREASE;
+			setTimer2(100);
+		}
+		if(timer3_flag==1) processDecrease();
+		if(isButtonPressed(FIRST_BUTTON)){
+			status=RESET_BUTTON;
+			setTimer3(100);
+		}
+		if(isButtonPressed(SECOND_BUTTON)){
+			status=INC_BUTTON;
+			setTimer3(100);
+		}
+		if(isButtonPressed(THIRD_BUTTON)){
+			status=DEC_BUTTON;
+			setTimer3(100);
+		}
+		if(isButtonPressedMoreThan3s(THIRD_BUTTON)){
+			status=DEC;
+			setTimer3(100);
+		}
+		break;
+	case AUTODECREASE:
+		if(timer2_flag==1) processAutoDecrease();
+		if(isButtonPressed(SECOND_BUTTON)){
+			status=INC_BUTTON;
+			setTimer3(100);
+		}
+		if(isButtonPressed(THIRD_BUTTON)){
+			status=DEC_BUTTON;
+			setTimer3(100);
+		}
+		break;
+	default:
+		break;
+	}
+}

@@ -1,0 +1,17 @@
+/*
+ * fsm_button.h
+ *
+ *  Created on: Nov 12, 2024
+ *      Author: doqua
+ */
+
+#ifndef INC_FSM_BUTTON_H_
+#define INC_FSM_BUTTON_H_
+
+#include "global.h"
+#inlcude "main.h"
+
+void fsm_button_run(void);
+
+
+#endif /* INC_FSM_BUTTON_H_ */

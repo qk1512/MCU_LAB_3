@@ -1,0 +1,4 @@
+processing.c:11:6:processReset	8	static
+processing.c:17:6:processIncrease	8	static
+processing.c:25:6:processDecrease	8	static
+processing.c:33:6:processAutoDecrease	8	static

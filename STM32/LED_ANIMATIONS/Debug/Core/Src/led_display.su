@@ -1,0 +1,7 @@
+led_display.c:30:6:display7SEG	24	static
+led_display.c:45:6:display7SEG_B	24	static
+led_display.c:60:6:off_led	8	static
+led_display.c:70:6:on_led	8	static
+led_display.c:80:6:binkly_led	8	static
+led_display.c:90:6:update7SEG	16	static
+led_display.c:106:6:update7SEG_B	16	static

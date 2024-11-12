@@ -1,0 +1,4 @@
+displaysevensegment.c:14:6:update7SEG	16	static
+displaysevensegment.c:17:6:display7SEG	24	static
+displaysevensegment.c:23:6:updateLedBuffer	16	static
+displaysevensegment.c:26:6:turnOffSevenSegment	8	static

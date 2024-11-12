@@ -1,0 +1,13 @@
+/*
+ * fsm_automatic.c
+ *
+ *  Created on: Oct 22, 2024
+ *      Author: doqua
+ */
+#include "fsm_automatic.h"
+
+void fsm_automatic_run(){
+	if(current_mode == MODE_1){
+
+	}
+}
